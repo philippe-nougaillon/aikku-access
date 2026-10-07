@@ -279,6 +279,8 @@ GEM
     ostruct (0.6.3)
     pagy (9.4.0)
     pdf-core (0.10.0)
+    pg (1.7.0-x86_64-darwin)
+    pg (1.7.0-x86_64-linux)
     pp (0.6.4)
       prettyprint
     pragmatic_segmenter (0.3.24)
@@ -472,6 +474,7 @@ DEPENDENCIES
   omniauth-google-oauth2 (~> 1.1)
   omniauth-rails_csrf_protection (~> 1.0)
   pagy (~> 9.2)
+  pg (~> 1.7)
   prawn (~> 2.4)
   prawn-table (~> 0.2.2)
   puma (~> 6.0)

@@ -115,3 +115,5 @@ gem "tiktoken_ruby", "~> 0.0.9"
 gem "net-pop", github: 'ruby/net-pop'
 
 gem "pagy", "~> 9.2"
+
+gem "pg", "~> 1.7"
