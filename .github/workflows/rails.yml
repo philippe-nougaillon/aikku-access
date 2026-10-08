@@ -18,7 +18,7 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_DB: test_db
+          POSTGRES_DB: AikkuAccess_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
         ports:
@@ -36,7 +36,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.4.9
+          ruby-version: 4.0.2
       
       - name: Install dependencies
         run: |
@@ -45,7 +45,7 @@ jobs:
 
       - name: Set up database and run tests
         env:
-          DATABASE_URL: postgres://postgres:password@localhost:5432/test
+          DATABASE_URL: postgres://postgres:password@localhost:5432/AikkuAccess_test
           REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}

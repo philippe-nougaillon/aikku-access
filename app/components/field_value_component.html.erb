@@ -1,0 +1,108 @@
+<% case field.datatype %>
+<% when 'Fichier' %>
+  <% if blob&.file_attachment %>
+    <%= link_to blob.file_attachment.filename, url_for(blob.file), target: '_blank' %>
+  <% end %>
+
+<% when 'Image', 'PDF' %>
+  <% if blob&.file&.representable? %>
+    <%= link_to url_for(blob.file), target: '_blank', title: blob.file.filename do %>
+      <%= image_tag(blob.file.representation(resize_to_limit: image_thumbnail_size), class: (context != :table ? 'shadow' : nil)) %>
+    <% end %>
+  <% end %>
+
+<% when 'Signature' %>
+  <img class="w-100" src="<%= value %>">
+
+<% when 'Date' %>
+  <% if value.present? %>
+    <% if valid_date? %>
+      <%= link_to_if details_link?, formatted_date, details_path, data: { turbo_frame: "_top" }, class: 'font-bold link-offset-2' %>
+    <% else %>
+      <%= t('tables.error') %>
+    <% end %>
+  <% end %>
+
+<% when 'Texte_long' %>
+  <%= text_long_value %>
+
+<% when 'Texte_riche' %>
+  <%= simple_format(value) %>
+
+<% when 'Euros' %>
+  <span style="white-space: nowrap"><%= number_to_currency(value) %></span>
+
+<% when 'Formule' %>
+  <%= field.evaluate(table, record_index) if table && record_index %>
+
+<% when 'Statut' %>
+  <span class="badge bg-<%= status_color %>"><%= value %></span>
+
+<% when 'URL' %>
+  <%= link_to uri_host, value, target: "_blank", data: { turbo_frame: "_top" }, class: 'text-black' %>
+
+<% when 'Couleur' %>
+  <span style="background-color: <%= value %>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+<% when 'GPS' %>
+  <% if context == :detail && value.present? %>
+    <%= render partial: 'partials/mapbox', locals: { value: value } %>
+  <% else %>
+    <%= value %>
+  <% end %>
+
+<% when 'Collection' %>
+  <% if linked_table %>
+    <%= link_to_if policy(linked_table).details?, linked_record_label, helpers.details_table_path(linked_table, record_index: value), data: { turbo_frame: "_top" }, class: 'font-bold link-offset-2', 'data-testid': "Voir les détails de #{field.items&.tr('[]','').to_s.split('.').first} à la ligne n°#{value}" %>
+  <% else %>
+    <%= t('tables.collection_not_found') %>
+  <% end %>
+
+<% when 'Utilisateur' %>
+  <%= value %>
+
+<% when 'Vidéo_YouTube' %>
+  <% if youtube_embed? %>
+    <iframe width="<%= context == :table ? '200' : '280' %>" height="<%= context == :table ? '120' : '157' %>" src="<%= value %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <% else %>
+    <div class="d-flex gap-2">
+      <span class="material-symbols-outlined text-black-50" title="<%= t('tables.youtube_error') %>" role="button">
+        error
+      </span>
+      <%= link_to value, value, target: "_blank", data: { turbo_frame: "_top" }, class: 'text-black' %>
+    </div>
+  <% end %>
+
+<% when 'QRCode' %>
+  <div class="<%= 'w-sm-50' if context != :table %>"><%= raw value %></div>
+
+<% when 'Distance' %>
+  <%= context == :table ? "~#{value} km" : value %>
+
+<% when 'Tags' %>
+  <div class="<%= 'd-flex flex-row gap-1' if context == :card %>">
+    <% tags.each do |tag| %>
+      <span class="badge bg-secondary"><%= tag.humanize %></span>
+    <% end %>
+  </div>
+
+<% when 'Email' %>
+  <%= mail_to value %>
+
+<% when 'Stars' %>
+  <div class="d-flex <%= 'flex-row mt-2' if context == :card %>">
+    <% star_count.times do %>
+      <i class="bi bi-star-fill"></i>
+    <% end %>
+    <% (5 - star_count).times do %>
+      <i class="bi bi-star"></i>
+    <% end %>
+  </div>
+
+<% when 'Oui_non?' %>
+  <%= link_to_if details_link?, t("misc.#{value}"), details_path, data: { turbo_frame: "_top" }, class: 'font-bold link-offset-2' %>
+
+<% else %>
+  <%= link_to_if details_link?, value, details_path, data: { turbo_frame: "_top" }, class: 'font-bold link-offset-2' %>
+
+<% end %>

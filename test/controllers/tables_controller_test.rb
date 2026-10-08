@@ -55,6 +55,25 @@ class TablesControllerTest < ActionDispatch::IntegrationTest
     assert_select "a", @table_étude.name_pluralized
   end
 
+  test "should get details" do
+    get details_table_url(id: @table_étude.slug, record_index: 1)
+    assert_response :success
+    assert_select "div#details"
+    assert_select "div.form-control"
+  end
+
+  test "should get fill" do
+    get fill_table_url(id: @table_étude.slug)
+    assert_response :success
+    assert_select "input#submit"
+  end
+
+  test "should get fill with record_index" do
+    get fill_table_url(id: @table_étude.slug, record_index: 1)
+    assert_response :success
+    assert_select "input#submit"
+  end
+
   # test "should add field to table" do
   #   assert_difference("Field.count") do
   #     post table_fields_url(@table_étude), params: { field: { name: "Désignation", datatype: "string" } }
