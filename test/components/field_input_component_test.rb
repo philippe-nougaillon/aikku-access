@@ -98,4 +98,13 @@ class FieldInputComponentTest < ViewComponent::TestCase
     assert_selector "input[type='radio'][name='[data][1][51]']", count: 5
     assert_selector "input[type='radio'][value='3'][checked]"
   end
+
+  test "renders trix editor for Texte_riche" do
+    field = Field.new(id: 52, name: "Contenu", datatype: "Texte_riche", obligatoire: false)
+
+    render_inline(FieldInputComponent.new(field: field, table: @table, record_index: 1, value: "<div>Texte</div>", index: 1))
+
+    assert_selector "trix-editor[data-testid='Contenu']"
+  end
 end
+

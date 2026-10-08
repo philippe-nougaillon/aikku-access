@@ -47,7 +47,7 @@
     <%= text_area_tag field_name, field_value, autofocus: autofocus?, col: 10, row: 10, class: 'form-control w-100', 'data-testid': field.name %>
 
   <% when 'Texte_riche' %>
-    <%= rich_text_area_tag field_name, field_value, required: field.obligatoire, 'data-testid': field.name %>
+    <%= helpers.rich_text_area_tag field_name, field_value, required: field.obligatoire, 'data-testid': field.name %>
 
   <% when 'Fichier', 'Image', 'PDF' %>
     <% if blob&.file_attachment %>

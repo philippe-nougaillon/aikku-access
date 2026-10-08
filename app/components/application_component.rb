@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationComponent < ViewComponent::Base
+  delegate :rich_text_area_tag, to: :helpers
   def current_user
     helpers.current_user if helpers.respond_to?(:current_user)
   rescue Devise::MissingWarden
