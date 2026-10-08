@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-class FieldValueComponent < ViewComponent::Base
-  delegate :policy, to: :helpers
-
+class FieldValueComponent < ApplicationComponent
   attr_reader :field, :value, :table, :record_index, :is_link, :context
 
   def initialize(field:, value:, table: nil, record_index: nil, is_link: false, context: :table)
@@ -24,7 +22,7 @@ class FieldValueComponent < ViewComponent::Base
 
   def formatted_date
     l(@value.to_date) if @value.present? && valid_date?
-  rescue
+  rescue Date::Error, TypeError
     nil
   end
 
@@ -35,7 +33,7 @@ class FieldValueComponent < ViewComponent::Base
 
   def uri_host
     URI.parse(@value).host
-  rescue
+  rescue URI::InvalidURIError, ArgumentError
     @value
   end
 
@@ -72,6 +70,8 @@ class FieldValueComponent < ViewComponent::Base
   end
 
   def details_path
+    return unless details_link?
+
     helpers.details_table_path(@table, record_index: @record_index)
   end
 end

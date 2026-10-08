@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FieldInputComponent < ViewComponent::Base
+class FieldInputComponent < ApplicationComponent
   attr_reader :field, :table, :record_index, :index, :relation_param, :value_param
 
   def initialize(field:, table:, record_index: nil, value: nil, index: 0, relation_param: nil, value_param: nil)

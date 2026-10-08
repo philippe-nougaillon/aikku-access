@@ -55,4 +55,47 @@ class FieldInputComponentTest < ViewComponent::TestCase
     assert_selector "input[data-geolocation-target='gpstextfield'][value='48.85,2.35']"
     assert_selector "button[data-action='click->geolocation#search']"
   end
+
+  test "renders date input for Date" do
+    field = Field.new(id: 47, name: "Échéance", datatype: "Date", obligatoire: true)
+
+    render_inline(FieldInputComponent.new(field: field, table: @table, record_index: 1, value: "2026-10-08", index: 1))
+
+    assert_selector "input[type='date'][name='[data][1][47]'][value='2026-10-08'][required]"
+  end
+
+  test "renders email input for Email" do
+    field = Field.new(id: 48, name: "Contact", datatype: "Email", obligatoire: false)
+
+    render_inline(FieldInputComponent.new(field: field, table: @table, record_index: 1, value: "user@test.org", index: 1))
+
+    assert_selector "input[type='email'][name='[data][1][48]'][value='user@test.org']"
+  end
+
+  test "renders textarea for Texte_long" do
+    field = Field.new(id: 49, name: "Remarques", datatype: "Texte_long", obligatoire: false)
+
+    render_inline(FieldInputComponent.new(field: field, table: @table, record_index: 1, value: "Longue description", index: 1))
+
+    assert_selector "textarea[name='[data][1][49]']", text: "Longue description"
+  end
+
+  test "generates a UUID when value is blank for UUID datatype" do
+    field = Field.new(id: 50, name: "Identifiant", datatype: "UUID", obligatoire: true)
+
+    component = FieldInputComponent.new(field: field, table: @table, record_index: 1, value: nil, index: 1)
+    render_inline(component)
+
+    assert_match(/\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/i, component.field_value)
+    assert_selector "input[name='[data][1][50]']"
+  end
+
+  test "renders 5 radio buttons for Stars" do
+    field = Field.new(id: 51, name: "Avis", datatype: "Stars", obligatoire: false)
+
+    render_inline(FieldInputComponent.new(field: field, table: @table, record_index: 1, value: "3", index: 1))
+
+    assert_selector "input[type='radio'][name='[data][1][51]']", count: 5
+    assert_selector "input[type='radio'][value='3'][checked]"
+  end
 end

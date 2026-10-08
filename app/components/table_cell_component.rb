@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class TableCellComponent < ViewComponent::Base
+class TableCellComponent < ApplicationComponent
   attr_reader :field, :value, :table, :record_index, :is_link, :relation
 
-  def initialize(field:, value:, table:, record_index:, is_link: false, relation: nil, sum: nil)
+  def initialize(field:, value:, table:, record_index:, is_link: false, relation: nil, sum: nil, hide_relation: nil)
     @field = field
     @value = value
     @table = table
@@ -11,10 +11,13 @@ class TableCellComponent < ViewComponent::Base
     @is_link = is_link
     @relation = relation
     @sum = sum
+    @hide_relation = hide_relation
   end
 
   def render?
-    return true unless %w[details related_tables].include?(helpers.action_name)
+    hide = @hide_relation.nil? ? %w[details related_tables].include?(helpers.action_name) : @hide_relation
+    return true unless hide
+
     !(@field.Collection? && @relation&.field == @field)
   end
 
