@@ -11,7 +11,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2026_07_10_133138) do
-
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -60,7 +61,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_07_10_133138) do
     t.string "user_type"
     t.string "username"
     t.string "action"
-    t.json "audited_changes"
+    t.jsonb "audited_changes"
     t.integer "version", default: 0
     t.string "comment"
     t.string "remote_address"
@@ -200,7 +201,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_07_10_133138) do
     t.string "response"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "fields_id"
+    t.integer "fields_id", default: [], array: true
     t.index ["table_id"], name: "index_prompts_on_table_id"
     t.index ["user_id"], name: "index_prompts_on_user_id"
   end
@@ -209,7 +210,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_07_10_133138) do
     t.bigint "field_id", null: false
     t.integer "table_id"
     t.integer "relation_with_id"
-    t.text "items"
+    t.string "items", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["field_id"], name: "index_relations_on_field_id"

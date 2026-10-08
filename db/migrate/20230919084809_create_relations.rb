@@ -4,7 +4,7 @@ class CreateRelations < ActiveRecord::Migration[7.0]
       t.references :field, null: false, foreign_key: true
       t.integer :table_id
       t.integer :relation_with_id
-      t.text :items
+      t.string :items, array: true, default: []
 
       t.timestamps
     end
