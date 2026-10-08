@@ -1,0 +1,14 @@
+<% if value.present? %>
+  <td style="<%= cell_style %>">
+    <%= render FieldValueComponent.new(
+          field: field,
+          value: value,
+          table: table,
+          record_index: record_index,
+          is_link: is_link,
+          context: :table
+        ) %>
+  </td>
+<% else %>
+  <td></td>
+<% end %>

@@ -1,11 +1,36 @@
-import { Controller, Application } from "@hotwired/stimulus"
-import Notification from 'stimulus-notification'
-
-const application = Application.start()
-application.register('notification', Notification)
+import Notification from "@stimulus-components/notification"
+import { useTransition } from "stimulus-use"
 
 // Connects to data-controller="notification"
-export default class extends Controller {
+export default class extends Notification {
   connect() {
+    useTransition(this, {
+      removeToClasses: false,
+      preserveOriginalClass: false
+    })
+    if (this.hiddenValue === false) {
+      this.show()
+    }
+  }
+
+
+  pause() {
+    if (this.timeout) {
+      clearTimeout(this.timeout)
+    }
+  }
+
+  resume() {
+    if (this.timeout) {
+      clearTimeout(this.timeout)
+    }
+    this.timeout = setTimeout(this.hide, this.delayValue)
+  }
+
+  disconnect() {
+    if (this.timeout) {
+      clearTimeout(this.timeout)
+    }
+    super.disconnect?.()
   }
 }
