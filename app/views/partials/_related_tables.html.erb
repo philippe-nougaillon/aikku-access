@@ -1,12 +1,14 @@
 <%= turbo_frame_tag "related_tables_frame" do %>
   <div class="card p-3 shadow-sm">
-    <% if @records.any? %>
-      <%= render partial: 'partials/table', locals: { table: @relation.table, records: @records } %>
+    <% records = local_assigns[:records] || @records %>
+    <% table = local_assigns[:table] || @relation&.table %>
+    <% if records.present? && records.any? && table.present? %>
+      <%= render partial: 'partials/table', locals: { table: table, records: records } %>
     <% else %>
       <div class="text-center text-black-50">
         Aucun enregistrement
       </div>
-      <% if %w[details related_tables].include?(action_name) %>
+      <% if %w[details related_tables].include?(action_name) && table.present? %>
         <% if policy(table).fill? %>
           <%= link_to "(+) #{table.name}", fill_table_path(table, relation: @relation, value: @record_index), class: 'btn btn-outline-primary my-4', data: { turbo_frame: "_top" }  %>
         <% end %>

@@ -84,6 +84,8 @@ class TablePolicy < ApplicationPolicy
   def related_tables?
     details?
   end
+  alias_method :related_table?, :related_tables?
+  alias_method :related?, :related_tables?
 
   def securite?
     user && user.admin?

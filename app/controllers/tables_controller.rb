@@ -458,8 +458,8 @@ class TablesController < ApplicationController
             order_by = (params[:sort_by] == session[:sort_by]) ? ((session[:order_by] == "DESC") ? "ASC" : "DESC") : "ASC"
             
             if params[:sort_by] == '0'
-              @records = @relation.table.values.where(field_id: params[:sort_by], record_index: @records).order("\"values\".updated_at #{order_by}").pluck(:record_index)
-            elsif ['Euros', 'Nombre', 'Formule'].include?(Field.find(params[:sort_by]).datatype)
+              @records = @relation.table.values.where(record_index: @records).order("\"values\".updated_at #{order_by}").pluck(:record_index).uniq
+            elsif ['Euros', 'Nombre', 'Formule'].include?(Field.find_by(id: params[:sort_by])&.datatype)
               @records = @relation.table.values.where(field_id: params[:sort_by], record_index: @records).order(Arel.sql("CAST(data AS float) #{order_by}")).pluck(:record_index)
             else
               @records = @relation.table.values.where(field_id: params[:sort_by], record_index: @records).order("data #{order_by}").pluck(:record_index)
@@ -479,13 +479,36 @@ class TablesController < ApplicationController
     end
   end
   
-  def related_table
-    @relation = Relation.find(params[:relation])
-    @record_index = params[:record_index]
-    @records = @relation.field.values.where(data: @record_index).pluck(:record_index)
-    @sum = Hash.new(0)
-    @pagy, @records = pagy_array(@records)
+  def related_tables
+    @relation = Relation.find_by(id: params[:relation])
+    if @relation
+      @record_index = params[:record_index]
+      @records = @relation.field&.values&.where(data: @record_index)&.pluck(:record_index) || []
+
+      if params[:sort_by]
+        order_by = (params[:sort_by] == session[:sort_by]) ? ((session[:order_by] == "DESC") ? "ASC" : "DESC") : "ASC"
+
+        if params[:sort_by] == '0'
+          @records = @relation.table.values.where(record_index: @records).order("\"values\".updated_at #{order_by}").pluck(:record_index).uniq
+        elsif ['Euros', 'Nombre', 'Formule'].include?(Field.find_by(id: params[:sort_by])&.datatype)
+          @records = @relation.table.values.where(field_id: params[:sort_by], record_index: @records).order(Arel.sql("CAST(data AS float) #{order_by}")).pluck(:record_index)
+        else
+          @records = @relation.table.values.where(field_id: params[:sort_by], record_index: @records).order("data #{order_by}").pluck(:record_index)
+        end
+
+        session[:sort_by] = params[:sort_by]
+        session[:order_by] = order_by
+      end
+
+      @sum = Hash.new(0)
+      @pagy, @records = pagy_array(@records)
+    else
+      @records = []
+      @sum = Hash.new(0)
+    end
   end
+  alias_method :related_table, :related_tables
+  alias_method :related, :related_tables
 
   def icalendar
     user = User.find_by(slug: params[:user])

@@ -62,6 +62,13 @@ class TablesControllerTest < ActionDispatch::IntegrationTest
     assert_select "div.form-control"
   end
 
+  test "should get related tables" do
+    relation = relations(:relation_étude_produit)
+    get related_table_url(id: @table_produit.slug, relation: relation.id, record_index: 1)
+    assert_response :success
+    assert_select "turbo-frame#related_tables_frame"
+  end
+
   test "should get fill" do
     get fill_table_url(id: @table_étude.slug)
     assert_response :success

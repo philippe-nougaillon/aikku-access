@@ -31,7 +31,7 @@ Rails.application.routes.draw do
         get :activity
         get :details
         get :icalendar
-        get :related
+        get :related_tables, as: :related
         
       end
       collection do
