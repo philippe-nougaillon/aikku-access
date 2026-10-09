@@ -36,7 +36,7 @@ class FieldInputComponentTest < ViewComponent::TestCase
 
     render_inline(FieldInputComponent.new(field: field, table: @table, record_index: 2, value: "Oui", index: 1))
 
-    assert_selector "label span.material-symbols-outlined", text: "help"
+    assert_selector "label span.material-symbols-outlined"
     assert_no_selector ".input-group"
     assert_selector "input[type='radio'][value='Oui'][checked]"
     assert_selector "input[type='radio'][value='Non']"

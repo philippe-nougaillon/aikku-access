@@ -1483,6 +1483,1500 @@
             "line": 80.51
           }
         }
+      },
+      {
+        "created_at": "2026-10-09T14:42:19Z",
+        "branch": "staging",
+        "commit": "32918443b7cc1a5df84f9a10ce9d57c8ec78ccbd",
+        "totals": {
+          "line": 16.3
+        },
+        "groups": {
+          "Channels": {
+            "line": 0.0
+          },
+          "Controllers": {
+            "line": 6.62
+          },
+          "Helpers": {
+            "line": 100.0
+          },
+          "Jobs": {
+            "line": 0.0
+          },
+          "Mailers": {
+            "line": 43.33
+          },
+          "Models": {
+            "line": 42.25
+          },
+          "Ungrouped": {
+            "line": 8.56
+          }
+        },
+        "files": {
+          "app/channels/application_cable/channel.rb": {
+            "line": 0.0
+          },
+          "app/channels/application_cable/connection.rb": {
+            "line": 0.0
+          },
+          "app/components/application_component.rb": {
+            "line": 0.0
+          },
+          "app/components/field_input_component.rb": {
+            "line": 0.0
+          },
+          "app/components/field_value_component.rb": {
+            "line": 0.0
+          },
+          "app/components/table_cell_component.rb": {
+            "line": 0.0
+          },
+          "app/controllers/admin_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/api/v1/fields_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/api/v1/tables_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/api/v1/users_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/api/v1/values_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/application_controller.rb": {
+            "line": 66.66
+          },
+          "app/controllers/fields_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/filters_controller.rb": {
+            "line": 43.9
+          },
+          "app/controllers/graphs_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/mail_logs_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/notifications_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/organisations_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/pages_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/tables_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/teams_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users/omniauth_callbacks_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users/registrations_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/values_controller.rb": {
+            "line": 0.0
+          },
+          "app/helpers/admin_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/application_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/filters_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/graphs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/mail_logs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/notifications_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/organisations_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/pages_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/users_helper.rb": {
+            "line": 100.0
+          },
+          "app/jobs/import_table_job.rb": {
+            "line": 0.0
+          },
+          "app/mailers/application_mailer.rb": {
+            "line": 100.0
+          },
+          "app/mailers/user_mailer.rb": {
+            "line": 37.03
+          },
+          "app/models/application_record.rb": {
+            "line": 100.0
+          },
+          "app/models/blob.rb": {
+            "line": 100.0
+          },
+          "app/models/field.rb": {
+            "line": 23.42
+          },
+          "app/models/filter.rb": {
+            "line": 29.72
+          },
+          "app/models/filters_team.rb": {
+            "line": 100.0
+          },
+          "app/models/graph.rb": {
+            "line": 91.66
+          },
+          "app/models/log.rb": {
+            "line": 0.0
+          },
+          "app/models/mail_log.rb": {
+            "line": 100.0
+          },
+          "app/models/notification.rb": {
+            "line": 90.0
+          },
+          "app/models/organisation.rb": {
+            "line": 92.3
+          },
+          "app/models/prompt.rb": {
+            "line": 100.0
+          },
+          "app/models/relation.rb": {
+            "line": 100.0
+          },
+          "app/models/table.rb": {
+            "line": 39.24
+          },
+          "app/models/team.rb": {
+            "line": 90.0
+          },
+          "app/models/user.rb": {
+            "line": 66.66
+          },
+          "app/models/value.rb": {
+            "line": 71.42
+          },
+          "app/pdfs/export_pdf.rb": {
+            "line": 0.0
+          },
+          "app/policies/admin_policy.rb": {
+            "line": 0.0
+          },
+          "app/policies/application_policy.rb": {
+            "line": 62.96
+          },
+          "app/policies/field_policy.rb": {
+            "line": 0.0
+          },
+          "app/policies/filter_policy.rb": {
+            "line": 90.0
+          },
+          "app/policies/graph_policy.rb": {
+            "line": 0.0
+          },
+          "app/policies/mail_log_policy.rb": {
+            "line": 0.0
+          },
+          "app/policies/notification_policy.rb": {
+            "line": 0.0
+          },
+          "app/policies/organisation_policy.rb": {
+            "line": 0.0
+          },
+          "app/policies/pages_policy.rb": {
+            "line": 0.0
+          },
+          "app/policies/table_policy.rb": {
+            "line": 0.0
+          },
+          "app/policies/team_policy.rb": {
+            "line": 0.0
+          },
+          "app/policies/user_policy.rb": {
+            "line": 61.11
+          },
+          "app/policies/value_policy.rb": {
+            "line": 0.0
+          },
+          "app/services/agenda_to_icalendar.rb": {
+            "line": 0.0
+          },
+          "app/services/application_service.rb": {
+            "line": 0.0
+          },
+          "app/services/collection_to_csv.rb": {
+            "line": 0.0
+          },
+          "app/services/collection_to_xls.rb": {
+            "line": 0.0
+          },
+          "app/services/import_collection.rb": {
+            "line": 0.0
+          }
+        }
+      },
+      {
+        "created_at": "2026-10-09T14:45:46Z",
+        "branch": "staging",
+        "commit": "32918443b7cc1a5df84f9a10ce9d57c8ec78ccbd",
+        "totals": {
+          "line": 61.8
+        },
+        "groups": {
+          "Channels": {
+            "line": 0.0
+          },
+          "Controllers": {
+            "line": 56.84
+          },
+          "Helpers": {
+            "line": 78.57
+          },
+          "Jobs": {
+            "line": 0.0
+          },
+          "Mailers": {
+            "line": 43.33
+          },
+          "Models": {
+            "line": 62.38
+          },
+          "Ungrouped": {
+            "line": 73.37
+          }
+        },
+        "files": {
+          "app/channels/application_cable/channel.rb": {
+            "line": 0.0
+          },
+          "app/channels/application_cable/connection.rb": {
+            "line": 0.0
+          },
+          "app/components/application_component.rb": {
+            "line": 63.63
+          },
+          "app/components/field_input_component.rb": {
+            "line": 87.5
+          },
+          "app/components/field_value_component.rb": {
+            "line": 90.24
+          },
+          "app/components/table_cell_component.rb": {
+            "line": 100.0
+          },
+          "app/controllers/admin_controller.rb": {
+            "line": 45.45
+          },
+          "app/controllers/api/v1/fields_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/tables_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/users_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/values_controller.rb": {
+            "line": 91.3
+          },
+          "app/controllers/application_controller.rb": {
+            "line": 72.22
+          },
+          "app/controllers/fields_controller.rb": {
+            "line": 90.24
+          },
+          "app/controllers/filters_controller.rb": {
+            "line": 43.9
+          },
+          "app/controllers/graphs_controller.rb": {
+            "line": 67.1
+          },
+          "app/controllers/mail_logs_controller.rb": {
+            "line": 88.88
+          },
+          "app/controllers/notifications_controller.rb": {
+            "line": 91.11
+          },
+          "app/controllers/organisations_controller.rb": {
+            "line": 89.47
+          },
+          "app/controllers/pages_controller.rb": {
+            "line": 28.72
+          },
+          "app/controllers/tables_controller.rb": {
+            "line": 42.81
+          },
+          "app/controllers/teams_controller.rb": {
+            "line": 69.56
+          },
+          "app/controllers/users/omniauth_callbacks_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users/registrations_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users_controller.rb": {
+            "line": 78.37
+          },
+          "app/controllers/values_controller.rb": {
+            "line": 66.66
+          },
+          "app/helpers/admin_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/application_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/filters_helper.rb": {
+            "line": 40.0
+          },
+          "app/helpers/graphs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/mail_logs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/notifications_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/organisations_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/pages_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/users_helper.rb": {
+            "line": 100.0
+          },
+          "app/jobs/import_table_job.rb": {
+            "line": 0.0
+          },
+          "app/mailers/application_mailer.rb": {
+            "line": 100.0
+          },
+          "app/mailers/user_mailer.rb": {
+            "line": 37.03
+          },
+          "app/models/application_record.rb": {
+            "line": 100.0
+          },
+          "app/models/blob.rb": {
+            "line": 100.0
+          },
+          "app/models/field.rb": {
+            "line": 49.14
+          },
+          "app/models/filter.rb": {
+            "line": 51.35
+          },
+          "app/models/filters_team.rb": {
+            "line": 100.0
+          },
+          "app/models/graph.rb": {
+            "line": 100.0
+          },
+          "app/models/log.rb": {
+            "line": 100.0
+          },
+          "app/models/mail_log.rb": {
+            "line": 100.0
+          },
+          "app/models/notification.rb": {
+            "line": 100.0
+          },
+          "app/models/organisation.rb": {
+            "line": 92.3
+          },
+          "app/models/prompt.rb": {
+            "line": 100.0
+          },
+          "app/models/relation.rb": {
+            "line": 100.0
+          },
+          "app/models/table.rb": {
+            "line": 64.55
+          },
+          "app/models/team.rb": {
+            "line": 100.0
+          },
+          "app/models/user.rb": {
+            "line": 66.66
+          },
+          "app/models/value.rb": {
+            "line": 92.85
+          },
+          "app/pdfs/export_pdf.rb": {
+            "line": 0.0
+          },
+          "app/policies/admin_policy.rb": {
+            "line": 66.66
+          },
+          "app/policies/application_policy.rb": {
+            "line": 62.96
+          },
+          "app/policies/field_policy.rb": {
+            "line": 92.85
+          },
+          "app/policies/filter_policy.rb": {
+            "line": 90.0
+          },
+          "app/policies/graph_policy.rb": {
+            "line": 90.0
+          },
+          "app/policies/mail_log_policy.rb": {
+            "line": 87.5
+          },
+          "app/policies/notification_policy.rb": {
+            "line": 93.75
+          },
+          "app/policies/organisation_policy.rb": {
+            "line": 88.88
+          },
+          "app/policies/pages_policy.rb": {
+            "line": 85.71
+          },
+          "app/policies/table_policy.rb": {
+            "line": 85.41
+          },
+          "app/policies/team_policy.rb": {
+            "line": 92.85
+          },
+          "app/policies/user_policy.rb": {
+            "line": 83.33
+          },
+          "app/policies/value_policy.rb": {
+            "line": 0.0
+          },
+          "app/services/agenda_to_icalendar.rb": {
+            "line": 0.0
+          },
+          "app/services/application_service.rb": {
+            "line": 66.66
+          },
+          "app/services/collection_to_csv.rb": {
+            "line": 78.26
+          },
+          "app/services/collection_to_xls.rb": {
+            "line": 83.87
+          },
+          "app/services/import_collection.rb": {
+            "line": 80.51
+          }
+        }
+      },
+      {
+        "created_at": "2026-10-09T14:46:29Z",
+        "branch": "staging",
+        "commit": "32918443b7cc1a5df84f9a10ce9d57c8ec78ccbd",
+        "totals": {
+          "line": 61.8
+        },
+        "groups": {
+          "Channels": {
+            "line": 0.0
+          },
+          "Controllers": {
+            "line": 56.84
+          },
+          "Helpers": {
+            "line": 78.57
+          },
+          "Jobs": {
+            "line": 0.0
+          },
+          "Mailers": {
+            "line": 43.33
+          },
+          "Models": {
+            "line": 62.38
+          },
+          "Ungrouped": {
+            "line": 73.37
+          }
+        },
+        "files": {
+          "app/channels/application_cable/channel.rb": {
+            "line": 0.0
+          },
+          "app/channels/application_cable/connection.rb": {
+            "line": 0.0
+          },
+          "app/components/application_component.rb": {
+            "line": 63.63
+          },
+          "app/components/field_input_component.rb": {
+            "line": 87.5
+          },
+          "app/components/field_value_component.rb": {
+            "line": 90.24
+          },
+          "app/components/table_cell_component.rb": {
+            "line": 100.0
+          },
+          "app/controllers/admin_controller.rb": {
+            "line": 45.45
+          },
+          "app/controllers/api/v1/fields_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/tables_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/users_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/values_controller.rb": {
+            "line": 91.3
+          },
+          "app/controllers/application_controller.rb": {
+            "line": 72.22
+          },
+          "app/controllers/fields_controller.rb": {
+            "line": 90.24
+          },
+          "app/controllers/filters_controller.rb": {
+            "line": 43.9
+          },
+          "app/controllers/graphs_controller.rb": {
+            "line": 67.1
+          },
+          "app/controllers/mail_logs_controller.rb": {
+            "line": 88.88
+          },
+          "app/controllers/notifications_controller.rb": {
+            "line": 91.11
+          },
+          "app/controllers/organisations_controller.rb": {
+            "line": 89.47
+          },
+          "app/controllers/pages_controller.rb": {
+            "line": 28.72
+          },
+          "app/controllers/tables_controller.rb": {
+            "line": 42.81
+          },
+          "app/controllers/teams_controller.rb": {
+            "line": 69.56
+          },
+          "app/controllers/users/omniauth_callbacks_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users/registrations_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users_controller.rb": {
+            "line": 78.37
+          },
+          "app/controllers/values_controller.rb": {
+            "line": 66.66
+          },
+          "app/helpers/admin_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/application_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/filters_helper.rb": {
+            "line": 40.0
+          },
+          "app/helpers/graphs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/mail_logs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/notifications_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/organisations_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/pages_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/users_helper.rb": {
+            "line": 100.0
+          },
+          "app/jobs/import_table_job.rb": {
+            "line": 0.0
+          },
+          "app/mailers/application_mailer.rb": {
+            "line": 100.0
+          },
+          "app/mailers/user_mailer.rb": {
+            "line": 37.03
+          },
+          "app/models/application_record.rb": {
+            "line": 100.0
+          },
+          "app/models/blob.rb": {
+            "line": 100.0
+          },
+          "app/models/field.rb": {
+            "line": 49.14
+          },
+          "app/models/filter.rb": {
+            "line": 51.35
+          },
+          "app/models/filters_team.rb": {
+            "line": 100.0
+          },
+          "app/models/graph.rb": {
+            "line": 100.0
+          },
+          "app/models/log.rb": {
+            "line": 100.0
+          },
+          "app/models/mail_log.rb": {
+            "line": 100.0
+          },
+          "app/models/notification.rb": {
+            "line": 100.0
+          },
+          "app/models/organisation.rb": {
+            "line": 92.3
+          },
+          "app/models/prompt.rb": {
+            "line": 100.0
+          },
+          "app/models/relation.rb": {
+            "line": 100.0
+          },
+          "app/models/table.rb": {
+            "line": 64.55
+          },
+          "app/models/team.rb": {
+            "line": 100.0
+          },
+          "app/models/user.rb": {
+            "line": 66.66
+          },
+          "app/models/value.rb": {
+            "line": 92.85
+          },
+          "app/pdfs/export_pdf.rb": {
+            "line": 0.0
+          },
+          "app/policies/admin_policy.rb": {
+            "line": 66.66
+          },
+          "app/policies/application_policy.rb": {
+            "line": 62.96
+          },
+          "app/policies/field_policy.rb": {
+            "line": 92.85
+          },
+          "app/policies/filter_policy.rb": {
+            "line": 90.0
+          },
+          "app/policies/graph_policy.rb": {
+            "line": 90.0
+          },
+          "app/policies/mail_log_policy.rb": {
+            "line": 87.5
+          },
+          "app/policies/notification_policy.rb": {
+            "line": 93.75
+          },
+          "app/policies/organisation_policy.rb": {
+            "line": 88.88
+          },
+          "app/policies/pages_policy.rb": {
+            "line": 85.71
+          },
+          "app/policies/table_policy.rb": {
+            "line": 85.41
+          },
+          "app/policies/team_policy.rb": {
+            "line": 92.85
+          },
+          "app/policies/user_policy.rb": {
+            "line": 83.33
+          },
+          "app/policies/value_policy.rb": {
+            "line": 0.0
+          },
+          "app/services/agenda_to_icalendar.rb": {
+            "line": 0.0
+          },
+          "app/services/application_service.rb": {
+            "line": 66.66
+          },
+          "app/services/collection_to_csv.rb": {
+            "line": 78.26
+          },
+          "app/services/collection_to_xls.rb": {
+            "line": 83.87
+          },
+          "app/services/import_collection.rb": {
+            "line": 80.51
+          }
+        }
+      },
+      {
+        "created_at": "2026-10-09T14:46:44Z",
+        "branch": "staging",
+        "commit": "32918443b7cc1a5df84f9a10ce9d57c8ec78ccbd",
+        "totals": {
+          "line": 61.8
+        },
+        "groups": {
+          "Channels": {
+            "line": 0.0
+          },
+          "Controllers": {
+            "line": 56.84
+          },
+          "Helpers": {
+            "line": 78.57
+          },
+          "Jobs": {
+            "line": 0.0
+          },
+          "Mailers": {
+            "line": 43.33
+          },
+          "Models": {
+            "line": 62.38
+          },
+          "Ungrouped": {
+            "line": 73.37
+          }
+        },
+        "files": {
+          "app/channels/application_cable/channel.rb": {
+            "line": 0.0
+          },
+          "app/channels/application_cable/connection.rb": {
+            "line": 0.0
+          },
+          "app/components/application_component.rb": {
+            "line": 63.63
+          },
+          "app/components/field_input_component.rb": {
+            "line": 87.5
+          },
+          "app/components/field_value_component.rb": {
+            "line": 90.24
+          },
+          "app/components/table_cell_component.rb": {
+            "line": 100.0
+          },
+          "app/controllers/admin_controller.rb": {
+            "line": 45.45
+          },
+          "app/controllers/api/v1/fields_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/tables_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/users_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/values_controller.rb": {
+            "line": 91.3
+          },
+          "app/controllers/application_controller.rb": {
+            "line": 72.22
+          },
+          "app/controllers/fields_controller.rb": {
+            "line": 90.24
+          },
+          "app/controllers/filters_controller.rb": {
+            "line": 43.9
+          },
+          "app/controllers/graphs_controller.rb": {
+            "line": 67.1
+          },
+          "app/controllers/mail_logs_controller.rb": {
+            "line": 88.88
+          },
+          "app/controllers/notifications_controller.rb": {
+            "line": 91.11
+          },
+          "app/controllers/organisations_controller.rb": {
+            "line": 89.47
+          },
+          "app/controllers/pages_controller.rb": {
+            "line": 28.72
+          },
+          "app/controllers/tables_controller.rb": {
+            "line": 42.81
+          },
+          "app/controllers/teams_controller.rb": {
+            "line": 69.56
+          },
+          "app/controllers/users/omniauth_callbacks_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users/registrations_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users_controller.rb": {
+            "line": 78.37
+          },
+          "app/controllers/values_controller.rb": {
+            "line": 66.66
+          },
+          "app/helpers/admin_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/application_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/filters_helper.rb": {
+            "line": 40.0
+          },
+          "app/helpers/graphs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/mail_logs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/notifications_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/organisations_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/pages_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/users_helper.rb": {
+            "line": 100.0
+          },
+          "app/jobs/import_table_job.rb": {
+            "line": 0.0
+          },
+          "app/mailers/application_mailer.rb": {
+            "line": 100.0
+          },
+          "app/mailers/user_mailer.rb": {
+            "line": 37.03
+          },
+          "app/models/application_record.rb": {
+            "line": 100.0
+          },
+          "app/models/blob.rb": {
+            "line": 100.0
+          },
+          "app/models/field.rb": {
+            "line": 49.14
+          },
+          "app/models/filter.rb": {
+            "line": 51.35
+          },
+          "app/models/filters_team.rb": {
+            "line": 100.0
+          },
+          "app/models/graph.rb": {
+            "line": 100.0
+          },
+          "app/models/log.rb": {
+            "line": 100.0
+          },
+          "app/models/mail_log.rb": {
+            "line": 100.0
+          },
+          "app/models/notification.rb": {
+            "line": 100.0
+          },
+          "app/models/organisation.rb": {
+            "line": 92.3
+          },
+          "app/models/prompt.rb": {
+            "line": 100.0
+          },
+          "app/models/relation.rb": {
+            "line": 100.0
+          },
+          "app/models/table.rb": {
+            "line": 64.55
+          },
+          "app/models/team.rb": {
+            "line": 100.0
+          },
+          "app/models/user.rb": {
+            "line": 66.66
+          },
+          "app/models/value.rb": {
+            "line": 92.85
+          },
+          "app/pdfs/export_pdf.rb": {
+            "line": 0.0
+          },
+          "app/policies/admin_policy.rb": {
+            "line": 66.66
+          },
+          "app/policies/application_policy.rb": {
+            "line": 62.96
+          },
+          "app/policies/field_policy.rb": {
+            "line": 92.85
+          },
+          "app/policies/filter_policy.rb": {
+            "line": 90.0
+          },
+          "app/policies/graph_policy.rb": {
+            "line": 90.0
+          },
+          "app/policies/mail_log_policy.rb": {
+            "line": 87.5
+          },
+          "app/policies/notification_policy.rb": {
+            "line": 93.75
+          },
+          "app/policies/organisation_policy.rb": {
+            "line": 88.88
+          },
+          "app/policies/pages_policy.rb": {
+            "line": 85.71
+          },
+          "app/policies/table_policy.rb": {
+            "line": 85.41
+          },
+          "app/policies/team_policy.rb": {
+            "line": 92.85
+          },
+          "app/policies/user_policy.rb": {
+            "line": 83.33
+          },
+          "app/policies/value_policy.rb": {
+            "line": 0.0
+          },
+          "app/services/agenda_to_icalendar.rb": {
+            "line": 0.0
+          },
+          "app/services/application_service.rb": {
+            "line": 66.66
+          },
+          "app/services/collection_to_csv.rb": {
+            "line": 78.26
+          },
+          "app/services/collection_to_xls.rb": {
+            "line": 83.87
+          },
+          "app/services/import_collection.rb": {
+            "line": 80.51
+          }
+        }
+      },
+      {
+        "created_at": "2026-10-09T14:50:34Z",
+        "branch": "staging",
+        "commit": "32918443b7cc1a5df84f9a10ce9d57c8ec78ccbd",
+        "totals": {
+          "line": 61.8
+        },
+        "groups": {
+          "Channels": {
+            "line": 0.0
+          },
+          "Controllers": {
+            "line": 56.84
+          },
+          "Helpers": {
+            "line": 78.57
+          },
+          "Jobs": {
+            "line": 0.0
+          },
+          "Mailers": {
+            "line": 43.33
+          },
+          "Models": {
+            "line": 62.38
+          },
+          "Ungrouped": {
+            "line": 73.37
+          }
+        },
+        "files": {
+          "app/channels/application_cable/channel.rb": {
+            "line": 0.0
+          },
+          "app/channels/application_cable/connection.rb": {
+            "line": 0.0
+          },
+          "app/components/application_component.rb": {
+            "line": 63.63
+          },
+          "app/components/field_input_component.rb": {
+            "line": 87.5
+          },
+          "app/components/field_value_component.rb": {
+            "line": 90.24
+          },
+          "app/components/table_cell_component.rb": {
+            "line": 100.0
+          },
+          "app/controllers/admin_controller.rb": {
+            "line": 45.45
+          },
+          "app/controllers/api/v1/fields_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/tables_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/users_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/values_controller.rb": {
+            "line": 91.3
+          },
+          "app/controllers/application_controller.rb": {
+            "line": 72.22
+          },
+          "app/controllers/fields_controller.rb": {
+            "line": 90.24
+          },
+          "app/controllers/filters_controller.rb": {
+            "line": 43.9
+          },
+          "app/controllers/graphs_controller.rb": {
+            "line": 67.1
+          },
+          "app/controllers/mail_logs_controller.rb": {
+            "line": 88.88
+          },
+          "app/controllers/notifications_controller.rb": {
+            "line": 91.11
+          },
+          "app/controllers/organisations_controller.rb": {
+            "line": 89.47
+          },
+          "app/controllers/pages_controller.rb": {
+            "line": 28.72
+          },
+          "app/controllers/tables_controller.rb": {
+            "line": 42.81
+          },
+          "app/controllers/teams_controller.rb": {
+            "line": 69.56
+          },
+          "app/controllers/users/omniauth_callbacks_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users/registrations_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users_controller.rb": {
+            "line": 78.37
+          },
+          "app/controllers/values_controller.rb": {
+            "line": 66.66
+          },
+          "app/helpers/admin_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/application_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/filters_helper.rb": {
+            "line": 40.0
+          },
+          "app/helpers/graphs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/mail_logs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/notifications_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/organisations_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/pages_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/users_helper.rb": {
+            "line": 100.0
+          },
+          "app/jobs/import_table_job.rb": {
+            "line": 0.0
+          },
+          "app/mailers/application_mailer.rb": {
+            "line": 100.0
+          },
+          "app/mailers/user_mailer.rb": {
+            "line": 37.03
+          },
+          "app/models/application_record.rb": {
+            "line": 100.0
+          },
+          "app/models/blob.rb": {
+            "line": 100.0
+          },
+          "app/models/field.rb": {
+            "line": 49.14
+          },
+          "app/models/filter.rb": {
+            "line": 51.35
+          },
+          "app/models/filters_team.rb": {
+            "line": 100.0
+          },
+          "app/models/graph.rb": {
+            "line": 100.0
+          },
+          "app/models/log.rb": {
+            "line": 100.0
+          },
+          "app/models/mail_log.rb": {
+            "line": 100.0
+          },
+          "app/models/notification.rb": {
+            "line": 100.0
+          },
+          "app/models/organisation.rb": {
+            "line": 92.3
+          },
+          "app/models/prompt.rb": {
+            "line": 100.0
+          },
+          "app/models/relation.rb": {
+            "line": 100.0
+          },
+          "app/models/table.rb": {
+            "line": 64.55
+          },
+          "app/models/team.rb": {
+            "line": 100.0
+          },
+          "app/models/user.rb": {
+            "line": 66.66
+          },
+          "app/models/value.rb": {
+            "line": 92.85
+          },
+          "app/pdfs/export_pdf.rb": {
+            "line": 0.0
+          },
+          "app/policies/admin_policy.rb": {
+            "line": 66.66
+          },
+          "app/policies/application_policy.rb": {
+            "line": 62.96
+          },
+          "app/policies/field_policy.rb": {
+            "line": 92.85
+          },
+          "app/policies/filter_policy.rb": {
+            "line": 90.0
+          },
+          "app/policies/graph_policy.rb": {
+            "line": 90.0
+          },
+          "app/policies/mail_log_policy.rb": {
+            "line": 87.5
+          },
+          "app/policies/notification_policy.rb": {
+            "line": 93.75
+          },
+          "app/policies/organisation_policy.rb": {
+            "line": 88.88
+          },
+          "app/policies/pages_policy.rb": {
+            "line": 85.71
+          },
+          "app/policies/table_policy.rb": {
+            "line": 85.41
+          },
+          "app/policies/team_policy.rb": {
+            "line": 92.85
+          },
+          "app/policies/user_policy.rb": {
+            "line": 83.33
+          },
+          "app/policies/value_policy.rb": {
+            "line": 0.0
+          },
+          "app/services/agenda_to_icalendar.rb": {
+            "line": 0.0
+          },
+          "app/services/application_service.rb": {
+            "line": 66.66
+          },
+          "app/services/collection_to_csv.rb": {
+            "line": 78.26
+          },
+          "app/services/collection_to_xls.rb": {
+            "line": 83.87
+          },
+          "app/services/import_collection.rb": {
+            "line": 80.51
+          }
+        }
+      },
+      {
+        "created_at": "2026-10-09T15:01:12Z",
+        "branch": "staging",
+        "commit": "32918443b7cc1a5df84f9a10ce9d57c8ec78ccbd",
+        "totals": {
+          "line": 61.8
+        },
+        "groups": {
+          "Channels": {
+            "line": 0.0
+          },
+          "Controllers": {
+            "line": 56.84
+          },
+          "Helpers": {
+            "line": 78.57
+          },
+          "Jobs": {
+            "line": 0.0
+          },
+          "Mailers": {
+            "line": 43.33
+          },
+          "Models": {
+            "line": 62.38
+          },
+          "Ungrouped": {
+            "line": 73.37
+          }
+        },
+        "files": {
+          "app/channels/application_cable/channel.rb": {
+            "line": 0.0
+          },
+          "app/channels/application_cable/connection.rb": {
+            "line": 0.0
+          },
+          "app/components/application_component.rb": {
+            "line": 63.63
+          },
+          "app/components/field_input_component.rb": {
+            "line": 87.5
+          },
+          "app/components/field_value_component.rb": {
+            "line": 90.24
+          },
+          "app/components/table_cell_component.rb": {
+            "line": 100.0
+          },
+          "app/controllers/admin_controller.rb": {
+            "line": 45.45
+          },
+          "app/controllers/api/v1/fields_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/tables_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/users_controller.rb": {
+            "line": 100.0
+          },
+          "app/controllers/api/v1/values_controller.rb": {
+            "line": 91.3
+          },
+          "app/controllers/application_controller.rb": {
+            "line": 72.22
+          },
+          "app/controllers/fields_controller.rb": {
+            "line": 90.24
+          },
+          "app/controllers/filters_controller.rb": {
+            "line": 43.9
+          },
+          "app/controllers/graphs_controller.rb": {
+            "line": 67.1
+          },
+          "app/controllers/mail_logs_controller.rb": {
+            "line": 88.88
+          },
+          "app/controllers/notifications_controller.rb": {
+            "line": 91.11
+          },
+          "app/controllers/organisations_controller.rb": {
+            "line": 89.47
+          },
+          "app/controllers/pages_controller.rb": {
+            "line": 28.72
+          },
+          "app/controllers/tables_controller.rb": {
+            "line": 42.81
+          },
+          "app/controllers/teams_controller.rb": {
+            "line": 69.56
+          },
+          "app/controllers/users/omniauth_callbacks_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users/registrations_controller.rb": {
+            "line": 0.0
+          },
+          "app/controllers/users_controller.rb": {
+            "line": 78.37
+          },
+          "app/controllers/values_controller.rb": {
+            "line": 66.66
+          },
+          "app/helpers/admin_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/application_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/filters_helper.rb": {
+            "line": 40.0
+          },
+          "app/helpers/graphs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/mail_logs_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/notifications_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/organisations_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/pages_helper.rb": {
+            "line": 100.0
+          },
+          "app/helpers/users_helper.rb": {
+            "line": 100.0
+          },
+          "app/jobs/import_table_job.rb": {
+            "line": 0.0
+          },
+          "app/mailers/application_mailer.rb": {
+            "line": 100.0
+          },
+          "app/mailers/user_mailer.rb": {
+            "line": 37.03
+          },
+          "app/models/application_record.rb": {
+            "line": 100.0
+          },
+          "app/models/blob.rb": {
+            "line": 100.0
+          },
+          "app/models/field.rb": {
+            "line": 49.14
+          },
+          "app/models/filter.rb": {
+            "line": 51.35
+          },
+          "app/models/filters_team.rb": {
+            "line": 100.0
+          },
+          "app/models/graph.rb": {
+            "line": 100.0
+          },
+          "app/models/log.rb": {
+            "line": 100.0
+          },
+          "app/models/mail_log.rb": {
+            "line": 100.0
+          },
+          "app/models/notification.rb": {
+            "line": 100.0
+          },
+          "app/models/organisation.rb": {
+            "line": 92.3
+          },
+          "app/models/prompt.rb": {
+            "line": 100.0
+          },
+          "app/models/relation.rb": {
+            "line": 100.0
+          },
+          "app/models/table.rb": {
+            "line": 64.55
+          },
+          "app/models/team.rb": {
+            "line": 100.0
+          },
+          "app/models/user.rb": {
+            "line": 66.66
+          },
+          "app/models/value.rb": {
+            "line": 92.85
+          },
+          "app/pdfs/export_pdf.rb": {
+            "line": 0.0
+          },
+          "app/policies/admin_policy.rb": {
+            "line": 66.66
+          },
+          "app/policies/application_policy.rb": {
+            "line": 62.96
+          },
+          "app/policies/field_policy.rb": {
+            "line": 92.85
+          },
+          "app/policies/filter_policy.rb": {
+            "line": 90.0
+          },
+          "app/policies/graph_policy.rb": {
+            "line": 90.0
+          },
+          "app/policies/mail_log_policy.rb": {
+            "line": 87.5
+          },
+          "app/policies/notification_policy.rb": {
+            "line": 93.75
+          },
+          "app/policies/organisation_policy.rb": {
+            "line": 88.88
+          },
+          "app/policies/pages_policy.rb": {
+            "line": 85.71
+          },
+          "app/policies/table_policy.rb": {
+            "line": 85.41
+          },
+          "app/policies/team_policy.rb": {
+            "line": 92.85
+          },
+          "app/policies/user_policy.rb": {
+            "line": 83.33
+          },
+          "app/policies/value_policy.rb": {
+            "line": 0.0
+          },
+          "app/services/agenda_to_icalendar.rb": {
+            "line": 0.0
+          },
+          "app/services/application_service.rb": {
+            "line": 66.66
+          },
+          "app/services/collection_to_csv.rb": {
+            "line": 78.26
+          },
+          "app/services/collection_to_xls.rb": {
+            "line": 83.87
+          },
+          "app/services/import_collection.rb": {
+            "line": 80.51
+          }
+        }
       }
     ]
   }

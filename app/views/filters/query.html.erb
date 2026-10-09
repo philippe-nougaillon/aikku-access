@@ -1,54 +1,82 @@
-<div class="my-4 d-flex align-items-center text-success gap-2">
+<div class="my-4 d-flex align-items-center text-success gap-1">
   <h1 class="mb-0 d-inline">
     <%= t('filters.query_title', filter: @filter.name, table: @filter.table.name.pluralize) %>
   </h1>
 </div>
 
-<div class="border rounded shadow-xs p-3 p-sm-4">
+<div class="border rounded bg-white shadow-xs p-2 p-sm-4">
   <%= form_tag query_filter_path, method: :get do %>
-    <div class="row row-cols-sm-2 row-cols-lg-4 gap-3">
+    <div class="row row-cols-sm-2 row-cols-lg-4 gap-1">
     <% @filter.table.fields.where.not(datatype: 'QRCode').ordered.each_with_index do |field, index| %>
       <div class="row">
         <div class="col px-auto">
-          <label class="fw-bold d-flex gap-2 mb-2">
-            <span class="material-symbols-outlined text-black-50">
-              <%= field.icon %>
-            </span>
+          <% has_input_group = !(field.datatype == "Oui_non?" || field.Signature? || field.Date?) %>
+          <label class="fw-bold mb-1 <%= 'd-flex gap-1 align-items-center' unless has_input_group %>">
+            <% unless has_input_group %>
+              <span class="material-symbols-outlined text-black-50">
+                <%= field.icon %>
+              </span>
+            <% end %>
             <%= field.name.humanize %>
           </label>
           <% if field.is_numeric %>
-            <%= text_field_tag "[query][#{field.id}]", params["[query]"].try(:[], field.id.to_s), class: 'form-control w-100', autofocus: index.zero? %>
+            <div class="input-group">
+              <%= filter_icon_addon(field) %>
+              <%= text_field_tag "[query][#{field.id}]", params["[query]"].try(:[], field.id.to_s), class: 'form-control border-start-0 ps-0', autofocus: index.zero? %>
+            </div>
             <% hint = t('filters.numeric_hint') %>
           <% elsif field.Date? %>
-            <div class="d-flex flex-column gap-2 mb-0">
-              <div><%= t('tables.navbar.from') %> <%= date_field_tag "[query][#{field.id}][start]", params["[query]"].try(:[], field.id.to_s).try(:[], :start), class: 'form-control w-100', autofocus: index.zero? %></div>
-              <div><%= t('tables.navbar.to') %> <%= date_field_tag "[query][#{field.id}][end]", params["[query]"].try(:[], field.id.to_s).try(:[], :end), class: 'form-control w-100' %></div>
+            <div>
+              <div class="input-group flex-row flex-nowrap mb-2">
+                <span class="input-group-text text-secondary justify-content-center" style="min-width: 50px;"><%= t('tables.navbar.from') %></span>
+                <%= date_field_tag "[query][#{field.id}][start]", params["[query]"].try(:[], field.id.to_s).try(:[], :start), class: 'form-control w-100', autofocus: index.zero? %>
+              </div>
+              <div class="input-group flex-row flex-nowrap">
+                <span class="input-group-text text-secondary justify-content-center" style="min-width: 50px;"><%= t('tables.navbar.to') %></span>
+                <%= date_field_tag "[query][#{field.id}][end]", params["[query]"].try(:[], field.id.to_s).try(:[], :end), class: 'form-control w-100' %>
+              </div>
             </div>
             <% hint = t('filters.date_hint') %>
           <% elsif field.Liste? %>
-            <%= select_tag "[query][#{field.id}]", options_for_select(field.items_splitted, params["[query]"].try(:[], field.id.to_s)), class: 'form-select w-100', autofocus: index.zero?, multiple: true %>
+            <div class="input-group">
+              <%= filter_icon_addon(field, 'align-items-start pt-2') %>
+              <%= select_tag "[query][#{field.id}]", options_for_select(field.items_splitted, params["[query]"].try(:[], field.id.to_s)), class: 'form-select border-start-0 ps-0', autofocus: index.zero?, multiple: true %>
+            </div>
             <% hint = t('misc.select_hint') %>
           <% elsif field.Collection? %>
             <%# Checker si la liste vient d'une autre table %>
             <% if field.is_valid_table_params %>
-              <%= select_tag "[query][#{field.id}]", options_for_select(field.populate_linked_table.invert, params["[query]"].try(:[], field.id.to_s)), class: 'form-select w-100 overflow-x-auto', autofocus: index.zero?, multiple: true %>
+              <div class="input-group">
+                <%= filter_icon_addon(field, 'align-items-start pt-2') %>
+                <%= select_tag "[query][#{field.id}]", options_for_select(field.populate_linked_table.invert, params["[query]"].try(:[], field.id.to_s)), class: 'form-select border-start-0 ps-0 overflow-x-auto', autofocus: index.zero?, multiple: true %>
+              </div>
               <% hint = t('misc.select_hint') %>
             <% end %>
           <% elsif field.Statut? %>
             <% items = field.items_splitted.map{|e| e.split(':')}.to_h %>
-            <%= select_tag "[query][#{field.id}]", options_for_select(items.keys, params["[query]"].try(:[], field.id.to_s)), class: 'form-select w-100', 'data-testid': field.name, autofocus: index.zero?, multiple: true %>
+            <div class="input-group">
+              <%= filter_icon_addon(field, 'align-items-start pt-2') %>
+              <%= select_tag "[query][#{field.id}]", options_for_select(items.keys, params["[query]"].try(:[], field.id.to_s)), class: 'form-select border-start-0 ps-0', 'data-testid': field.name, autofocus: index.zero?, multiple: true %>
+            </div>
             <% hint = t('misc.select_hint') %>
           <% elsif field.datatype == "Oui_non?" || field.Signature? %>
-            <br>
-            <%= label_tag "[query][#{field.id}][yes]", t('misc.Oui'), class: '' %>
-            <%= check_box_tag "[query][#{field.id}][yes]", params["[query]"].try(:[], field.id.to_s).try(:[], :yes), params["[query]"].try(:[], field.id.to_s).try(:[], :yes) %>
-            <%= label_tag "[query][#{field.id}][no]", t('misc.Non'), class: '' %>
-            <%= check_box_tag "[query][#{field.id}][no]", params["[query]"].try(:[], field.id.to_s).try(:[], :no), params["[query]"].try(:[], field.id.to_s).try(:[], :no)%>
+            <div class="mt-2">
+              <%= label_tag "[query][#{field.id}][yes]", t('misc.Oui'), class: 'me-1' %>
+              <%= check_box_tag "[query][#{field.id}][yes]", params["[query]"].try(:[], field.id.to_s).try(:[], :yes), params["[query]"].try(:[], field.id.to_s).try(:[], :yes) %>
+              <%= label_tag "[query][#{field.id}][no]", t('misc.Non'), class: 'ms-3 me-1' %>
+              <%= check_box_tag "[query][#{field.id}][no]", params["[query]"].try(:[], field.id.to_s).try(:[], :no), params["[query]"].try(:[], field.id.to_s).try(:[], :no) %>
+            </div>
           <% elsif field.Stars? %>
-            <%= select_tag "[query][#{field.id}]", options_for_select((0..5).to_a, params["[query]"].try(:[], field.id.to_s)), class: 'form-select w-100',include_blank: true, autofocus: index.zero? %>
+            <div class="input-group">
+              <%= filter_icon_addon(field) %>
+              <%= select_tag "[query][#{field.id}]", options_for_select((0..5).to_a, params["[query]"].try(:[], field.id.to_s)), class: 'form-select border-start-0 ps-0', include_blank: true, autofocus: index.zero? %>
+            </div>
             <% hint = t('filters.star_hint') %>
           <% else %>
-            <%= text_field_tag "[query][#{field.id}]", params["[query]"].try(:[], field.id.to_s), class: 'form-control w-100', autofocus: index.zero? %>
+            <div class="input-group">
+              <%= filter_icon_addon(field) %>
+              <%= text_field_tag "[query][#{field.id}]", params["[query]"].try(:[], field.id.to_s), class: 'form-control border-start-0 ps-0', autofocus: index.zero? %>
+            </div>
             <% hint = t('filters.text_hint') %>
           <% end %>
           <p class="form-text">
