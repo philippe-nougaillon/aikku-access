@@ -1,23 +1,37 @@
 <fieldset class="mb-3">
-  <label class="fw-bold d-flex gap-2">
-    <span class="material-symbols-outlined text-black-50">
-      <%= field.icon %>
-    </span>
+  <label class="fw-bold mb-1 <%= 'd-flex gap-2 align-items-center' unless input_group? %>">
+    <% unless input_group? %>
+      <span class="material-symbols-outlined text-black-50">
+        <%= field.icon %>
+      </span>
+    <% end %>
     <%= label_text %>
   </label>
 
   <% case field.datatype %>
   <% when 'Texte' %>
-    <%= text_field_tag field_name, field_value, autofocus: autofocus?, class: 'form-control w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= text_field_tag field_name, field_value, autofocus: autofocus?, class: 'form-control border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'Nombre' %>
-    <%= number_field_tag field_name, field_value, class: 'form-control w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= number_field_tag field_name, field_value, class: 'form-control border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'Euros' %>
-    <%= number_field_tag field_name, field_value, step: 'any', class: 'form-control w-100', placeholder: "€", required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= number_field_tag field_name, field_value, step: 'any', class: 'form-control border-start-0 ps-0', placeholder: "€", required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'Date' %>
-    <%= text_field_tag field_name, field_value, class: 'form-control w-100', type: 'date', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= text_field_tag field_name, field_value, class: 'form-control border-start-0 ps-0', type: 'date', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'Oui_non?' %>
     <div class="d-flex flex-row gap-2 mt-2">
@@ -26,10 +40,16 @@
     </div>
 
   <% when 'Liste' %>
-    <%= select_tag field_name, options_for_select(field.items_splitted, field_value), include_blank: true, class: 'form-select w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= select_tag field_name, options_for_select(field.items_splitted, field_value), include_blank: true, class: 'form-select border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'Formule' %>
-    <%= text_field_tag field_name, field_value, disabled: true, class: 'form-control w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= text_field_tag field_name, field_value, disabled: true, class: 'form-control border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'Signature' %>
     <div id="signature">
@@ -44,31 +64,45 @@
     <%= render partial: 'partials/script_signature' %>
 
   <% when 'Texte_long' %>
-    <%= text_area_tag field_name, field_value, autofocus: autofocus?, col: 10, row: 10, class: 'form-control w-100', 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon('align-items-start pt-2') %>
+      <%= text_area_tag field_name, field_value, autofocus: autofocus?, col: 10, row: 10, class: 'form-control border-start-0 ps-0', 'data-testid': field.name %>
+    </div>
 
   <% when 'Texte_riche' %>
     <%= helpers.rich_text_area_tag field_name, field_value, required: field.obligatoire, 'data-testid': field.name %>
 
   <% when 'Fichier', 'Image', 'PDF' %>
     <% if blob&.file_attachment %>
-      <%= link_to blob.file_attachment.filename, url_for(blob.file), class: 'w-100', required: field.obligatoire, 'data-testid': field.name %>
+      <%= link_to blob.file_attachment.filename, url_for(blob.file), class: 'd-block mb-2', 'data-testid': field.name %>
     <% end %>
-    <br>
-    <%= file_field_tag field_name, class: 'w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= file_field_tag field_name, class: 'form-control border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'Statut' %>
-    <%= select_tag field_name, options_for_select(status_keys, field_value), include_blank: true, class: 'form-select w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= select_tag field_name, options_for_select(status_keys, field_value), include_blank: true, class: 'form-select border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'URL' %>
-    <%= text_field_tag field_name, field_value, autofocus: autofocus?, class: 'form-control w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= text_field_tag field_name, field_value, autofocus: autofocus?, class: 'form-control border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'Couleur' %>
-    <br>
-    <%= color_field_tag field_name, field_value, class: 'form-control w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= color_field_tag field_name, field_value, class: 'form-control form-control-color border-start-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'GPS' %>
     <div data-controller="geolocation" class="input-group flex-row">
-      <%= text_field_tag field_name, field_value, class: 'form-control', 'data-geolocation-target': 'gpstextfield', required: field.obligatoire, 'data-testid': field.name %>
+      <%= input_icon_addon %>
+      <%= text_field_tag field_name, field_value, class: 'form-control border-start-0 ps-0', 'data-geolocation-target': 'gpstextfield', required: field.obligatoire, 'data-testid': field.name %>
       <button type="button" data-action="click->geolocation#search" class="btn btn-outline-primary btn-sm p-0" title="<%= t('tables.actual_position') %>">
         <span class="material-symbols-outlined mt-1 px-2">
           my_location
@@ -81,32 +115,54 @@
 
   <% when 'Collection' %>
     <% if field.is_valid_table_params %>
-      <div class="d-flex align-items-center">
-        <%= select_tag field_name, options_for_select(field.populate_linked_table.invert, field_value), include_blank: true, class: 'form-select w-100', required: field.obligatoire, 'data-testid': field.name %>
+      <div class="input-group">
+        <%= input_icon_addon %>
+        <%= select_tag field_name, options_for_select(field.populate_linked_table.invert, field_value), include_blank: true, class: 'form-select border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
         <%= link_to table_path(Table.find(field.relation.relation_with_id)), target: '_blank' do %>
         <% end %>
       </div>
     <% else %>
-      <%= select_tag field_name, options_for_select(["Aucune relation trouvée"]), class: 'form-control w-100', required: field.obligatoire, 'data-testid': field.name %>
+      <div class="input-group">
+        <%= input_icon_addon %>
+        <%= select_tag field_name, options_for_select(["Aucune relation trouvée"]), class: 'form-control border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+      </div>
     <% end %>
 
   <% when 'Utilisateur' %>
-    <%= select_tag field_name, options_for_select(users_names, field_value), include_blank: true, class: 'form-select w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= select_tag field_name, options_for_select(users_names, field_value), include_blank: true, class: 'form-select border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'Vidéo_YouTube' %>
-    <%= text_field_tag field_name, field_value, autofocus: autofocus?, class: 'form-control w-100', required: field.obligatoire, placeholder: "ex: https://www.youtube.com/embed/eY67d0_ywiE", 'data-testid': field.name, title: t('tables.youtube_hint') %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= text_field_tag field_name, field_value, autofocus: autofocus?, class: 'form-control border-start-0 ps-0', required: field.obligatoire, placeholder: "ex: https://www.youtube.com/embed/eY67d0_ywiE", 'data-testid': field.name, title: t('tables.youtube_hint') %>
+    </div>
 
   <% when 'QRCode', 'Distance' %>
-    <%= text_field_tag field_name, field_value, class: 'form-control w-100', disabled: true, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= text_field_tag field_name, field_value, class: 'form-control border-start-0 ps-0', disabled: true, 'data-testid': field.name %>
+    </div>
 
   <% when 'UUID' %>
-    <%= text_field_tag field_name, field_value, class: 'form-control w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= text_field_tag field_name, field_value, class: 'form-control border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'Tags' %>
-    <%= text_field_tag field_name, field_value, class: 'form-control w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= text_field_tag field_name, field_value, class: 'form-control border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'Email' %>
-    <%= email_field_tag field_name, field_value, class: 'form-control w-100', required: field.obligatoire, 'data-testid': field.name %>
+    <div class="input-group">
+      <%= input_icon_addon %>
+      <%= email_field_tag field_name, field_value, class: 'form-control border-start-0 ps-0', required: field.obligatoire, 'data-testid': field.name %>
+    </div>
 
   <% when 'QRScan' %>
     <video id="video" class="form-control w-100 p-0 mb-1"></video>
@@ -121,7 +177,10 @@
       <a class="btn btn-sm btn-outline-dark w-100" id="resetButton"><%= t('tables.clear') %></a>
     </div>
 
-    <%= text_field_tag field_name, field_value, class: 'form-control w-100 mt-4', required: field.obligatoire, placeholder: t('tables.no_scan'), 'data-testid': field.name %>
+    <div class="input-group mt-4">
+      <%= input_icon_addon %>
+      <%= text_field_tag field_name, field_value, class: 'form-control border-start-0 ps-0', required: field.obligatoire, placeholder: t('tables.no_scan'), 'data-testid': field.name %>
+    </div>
 
     <%= render partial: 'partials/script_qrscan', locals: { field_name: field_name } %>
 
@@ -139,7 +198,8 @@
 
   <% when 'Météo' %>
     <div data-controller="weather" class="input-group flex-row">
-      <%= text_field_tag field_name, field_value, class: 'form-control', 'data-weather-target': 'weathertextfield', required: field.obligatoire, 'data-testid': field.name %>
+      <%= input_icon_addon %>
+      <%= text_field_tag field_name, field_value, class: 'form-control border-start-0 ps-0', 'data-weather-target': 'weathertextfield', required: field.obligatoire, 'data-testid': field.name %>
       <button type="button" data-action="click->weather#search" class="btn btn-outline-primary btn-sm p-0" title="<%= t('tables.acutal_position') %>">
         <span class="material-symbols-outlined mt-1 px-2">
           my_location

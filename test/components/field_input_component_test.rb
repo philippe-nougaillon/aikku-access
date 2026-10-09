@@ -14,6 +14,8 @@ class FieldInputComponentTest < ViewComponent::TestCase
 
     assert_selector "fieldset.mb-3"
     assert_selector "label", text: "* Titre"
+    assert_no_selector "label span.material-symbols-outlined"
+    assert_selector ".input-group .input-group-text span.material-symbols-outlined", text: "abc"
     assert_selector "input[type='text'][name='[data][1][42]'][value='Mon titre'][required]"
     assert_selector "input[autofocus]"
   end
@@ -23,6 +25,7 @@ class FieldInputComponentTest < ViewComponent::TestCase
 
     render_inline(FieldInputComponent.new(field: field, table: @table, record_index: 1, value: "19.99", index: 1))
 
+    assert_selector ".input-group .input-group-text span.material-symbols-outlined", text: "euro"
     assert_selector "input[type='number'][name='[data][1][43]'][value='19.99'][placeholder='€']"
     assert_no_selector "input[required]"
     assert_no_selector "input[autofocus]"
@@ -33,6 +36,8 @@ class FieldInputComponentTest < ViewComponent::TestCase
 
     render_inline(FieldInputComponent.new(field: field, table: @table, record_index: 2, value: "Oui", index: 1))
 
+    assert_selector "label span.material-symbols-outlined", text: "help"
+    assert_no_selector ".input-group"
     assert_selector "input[type='radio'][value='Oui'][checked]"
     assert_selector "input[type='radio'][value='Non']"
   end

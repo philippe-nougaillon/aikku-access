@@ -438,3 +438,21 @@ div.d-flex{
     }
   }
 }
+
+.input-group {
+  .input-group-text.border-end-0 {
+    background-color: var(--bs-body-bg);
+  }
+
+  &:focus-within {
+    .input-group-text.border-end-0 {
+      border-color: #86b7fe;
+    }
+  }
+
+  &:has(:disabled) {
+    .input-group-text.border-end-0 {
+      background-color: var(--bs-secondary-bg);
+    }
+  }
+}
