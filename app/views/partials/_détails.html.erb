@@ -2,8 +2,8 @@
   <% values = @table.value_datas_détaillable(@record_index) %>
   <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
     <% @table.fields.détaillable.ordered.each_with_index do |field, index| %>
-      <div class="col mb-4">
-        <label class="fw-bold d-flex gap-2 mb-2">
+      <div class="col mb-2">
+        <label class="fw-bold d-flex gap-2 mb-1">
           <span class="material-symbols-outlined text-black-50">
             <%= field.icon %>
           </span>

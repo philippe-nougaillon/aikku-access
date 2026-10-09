@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "related_tables_frame" do %>
-  <div class="card p-3 shadow-sm">
+  <div class="card p-3 shadow-xs">
     <% records = local_assigns[:records] || @records %>
     <% table = local_assigns[:table] || @relation&.table %>
     <% if records.present? && records.any? && table.present? %>
