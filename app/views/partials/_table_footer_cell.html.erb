@@ -1,5 +1,5 @@
 <% if field.operation %>
-  <td class="text-primary" style="text-align: right">
+  <td class="text-primary" style="text-align: right;border: 1px solid lightgray;">
     <% if field.Somme? %>
       <% if field.Euros? %>
         <%= number_to_currency(@sum[field.id]) %>
