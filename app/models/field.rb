@@ -238,7 +238,7 @@ class Field < ApplicationRecord
 		when 'Date'
 			'calendar_today'
 		when 'Oui_non?'
-			'help'
+			'' # help
 		when 'Collection'
 			'database'
 		when 'Liste'
@@ -248,7 +248,7 @@ class Field < ApplicationRecord
 		when 'Signature'
 			'signature'
 		when 'Texte_riche'
-			'text_snippet'
+			'' # text_snippet
 		when 'Image'
 			'image'
 		when 'Statut'
